@@ -1,4 +1,5 @@
 ﻿@model HomeShoppe.Areas.Admin.Models.LoginModel
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,24 +35,23 @@
                     <div class="panel-body">
                         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                         {
-                            @Html.ValidationSummary(false, "" , new { @class="text-danger" })
+                            @Html.ValidationSummary(false, "", new { @class="text-danger"});
                             <fieldset>
                                 <div class="form-group">
-                                    @Html.TextBoxFor(Model=>Model.UserName, new { @class="form-control", @autofocus= "autofocus" })
+                                    @Html.TextBoxFor(model=>Model.UserName, new { @class="form-control", @autofocus= "autofocus" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.PasswordFor(Model => Model.UserName, new { @class = "form-control"})
+                                    @Html.PasswordFor(model => Model.Password, new { @class = "form-control"})
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        @Html.CheckBoxFor(Model=>Model.RememberMe) Remember Me
+                                        @Html.CheckBoxFor(model => Model.RememberMe)Remember Me
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-success btn-block"  >Login</button>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         }
-
                     </div>
                 </div>
             </div>

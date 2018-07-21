@@ -26,7 +26,6 @@ namespace HomeShoppe.Common
                 //for each byte
                 strBuilder.Append(result[i].ToString("x2"));
             }
-
             return strBuilder.ToString();
         }
     }

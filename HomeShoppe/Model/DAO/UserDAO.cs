@@ -24,7 +24,7 @@ namespace Model.DAO
 
         public User GetByID(string userName)
         {
-            return db.Users.SingleOrDefault(x=>x.UserName==userName);
+            return db.Users.SingleOrDefault(x => x.UserName == userName);
         }
 
         public int Login(string userName, string passWord)
@@ -36,7 +36,7 @@ namespace Model.DAO
             }
             else
             {
-                if(result.Status == false)
+                if (result.Status == false)
                 {
                     return -1;
                 }

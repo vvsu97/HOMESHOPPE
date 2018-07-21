@@ -22,32 +22,32 @@ namespace HomeShoppe.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDAO();
-                var result = dao.Login(model.UserName, Encrytor.MD5Hash(model.PassWord));
+                var result = dao.Login(model.UserName, Encrytor.MD5Hash(model.Password));
+                //var result = dao.Login(model.UserName, model.Password);
                 if (result == 1)
                 {
                     var user = dao.GetByID(model.UserName);
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.UserID = user.ID;
-
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
-                else if(result == 0)
+                else if (result == 0)
                 {
-                    ModelState.AddModelError("", "Tài khoản không tồn tại ");
+                    ModelState.AddModelError("", "Tài khoản không tồn tại.");
                 }
                 else if (result == -1)
                 {
-                    ModelState.AddModelError("", "Tài khoản đang bị khóa");
+                    ModelState.AddModelError("", "Tài khoản đang bị khoá.");
                 }
                 else if (result == -2)
                 {
-                    ModelState.AddModelError("", "Mật khẩu không đúng ");
+                    ModelState.AddModelError("", "Mật khẩu không đúng.");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Đăng nhập không thành công");
+                    ModelState.AddModelError("", "đăng nhập không đúng.");
                 }
             }
             return View("Index");

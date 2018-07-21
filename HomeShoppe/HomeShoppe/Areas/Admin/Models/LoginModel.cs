@@ -8,11 +8,12 @@ namespace HomeShoppe.Areas.Admin.Models
 {
     public class LoginModel
     {
-        [Required(ErrorMessage ="Mời nhập user name")]
+        [Required(ErrorMessage = "Mời nhập user name")]
         public string UserName { set; get; }
-        [Required(ErrorMessage = "Mời nhập pass word")]
-        public string PassWord { set; get; }
-        [Required(ErrorMessage = "Ghi nhớ mật khẩu ???")]
+
+        [Required(ErrorMessage = "Mời nhập password")]
+        public string Password { set; get; }
+
         public bool RememberMe { set; get; }
     }
 }
