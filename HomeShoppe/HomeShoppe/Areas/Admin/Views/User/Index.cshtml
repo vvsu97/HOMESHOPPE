@@ -1,7 +1,53 @@
-﻿@{
+﻿@model PagedList.IPagedList<Model.DTO.User>
+@using PagedList.Mvc
+@{
     ViewBag.Title = "Quản lí người dùng";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
 @section header{
     Danh sách người dùng
 }
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh sách người dùng
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tài khoản</th>
+                                <th>Địa chỉ</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    <a href="/Admin/User/Edit/@item.ID">Sửa</a>
+                                    |
+                                    <a href="/Admin/User/Delete/@item.ID">Xóa</a>
+                                </td>
+
+                                <td>@item.UserName</td>
+                                <td>@item.Address</td>
+                                <td>@item.Email</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
