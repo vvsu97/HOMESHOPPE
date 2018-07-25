@@ -17,7 +17,7 @@
         // user logs on your system.
 
         return Session["USER_SESSION"] != null;
-        //return true;
+        return true;
     }
     /**
 	 * All configuration settings must be defined here.
