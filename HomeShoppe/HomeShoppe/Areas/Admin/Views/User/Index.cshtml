@@ -16,6 +16,20 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
+                @using (Html.BeginForm("Index", "User", FormMethod.Get))
+                {
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-md-4">
+                                <input type="text" value="@ViewBag.SearchString" name="searchString" />
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -33,12 +47,12 @@
                                     <td>
                                         <a href="/Admin/User/Edit/@item.ID">Sửa</a>
                                         |
-                                        @Ajax.ActionLink("Xóa", "Delete",new  {@id = item.ID },  new AjaxOptions
-                                   {
-                                       Confirm = "Bạn có muốn xóa bản ghi này",
-                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                       HttpMethod="Delete"
-                                   })
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                        {
+                                            Confirm = "Bạn có muốn xóa bản ghi này",
+                                            OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                            HttpMethod = "Delete"
+                                        })
                                     </td>
 
                                     <td>@item.UserName</td>
@@ -48,6 +62,7 @@
                             }
                         </tbody>
                     </table>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString= @ViewBag.SearchString }))
                 </div>
                 <!-- /.table-responsive -->
             </div>

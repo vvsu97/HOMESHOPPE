@@ -18,9 +18,14 @@ namespace Model.DAO
             db = new HomeShoppeDB();
         }
 
-        public IEnumerable<User> ListAllPaging(int page, int pageSize)
+        public IEnumerable<User> ListAllPaging(string searchString, int page, int pageSize)
         {
-            return db.Users.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
+            IQueryable<User> model = db.Users;
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.UserName.Contains(searchString)).OrderByDescending(x => x.CreateDate);
+            }
+            return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
 
         public User GetByID(string userName)

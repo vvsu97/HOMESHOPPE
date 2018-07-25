@@ -13,10 +13,11 @@ namespace HomeShoppe.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         #region method
-        public ActionResult Index(int page = 1, int sizePage = 10)
+        public ActionResult Index(string searchString, int page = 1, int sizePage = 1)
         {
             var dao = new UserDAO();
-            var model = dao.ListAllPaging(page, sizePage);
+            var model = dao.ListAllPaging(searchString, page, sizePage);
+            ViewBag.SearchString = searchString;
             return View(model);
         }
 
