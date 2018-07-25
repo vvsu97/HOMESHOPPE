@@ -1443,6 +1443,7 @@
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
