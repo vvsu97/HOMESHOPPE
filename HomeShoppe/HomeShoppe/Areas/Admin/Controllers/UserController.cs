@@ -25,6 +25,7 @@ namespace HomeShoppe.Areas.Admin.Controllers
             var user = new UserDAO().ViewDetail(id);
             return View(user);
         }
+
         #endregion
 
         #region httpGet
@@ -80,6 +81,14 @@ namespace HomeShoppe.Areas.Admin.Controllers
                 }
             }
             return View("Index");
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new UserDAO().Delete(id);
+
+            return RedirectToAction("Index");
         }
         #endregion
 

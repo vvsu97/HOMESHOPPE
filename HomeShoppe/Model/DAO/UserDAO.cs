@@ -88,12 +88,21 @@ namespace Model.DAO
                 }
             }
         }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var user = db.Users.Find(id);
+                db.Users.Remove(user);
+                db.SaveChanges();
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
+        }
         #endregion
        
-
-        
-        
-
-        
     }
 }
