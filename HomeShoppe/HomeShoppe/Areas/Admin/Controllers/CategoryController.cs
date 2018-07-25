@@ -13,5 +13,12 @@ namespace HomeShoppe.Areas.Admin.Controllers
         {
             return View();
         }
+
+        #region method
+        public ActionResult Create()
+        {
+            return View();
+        }
+        #endregion
     }
 }
