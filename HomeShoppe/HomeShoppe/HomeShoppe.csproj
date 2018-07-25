@@ -962,6 +962,7 @@
     <Content Include="Asset\Server\vendor\raphael\raphael.js" />
     <Content Include="Asset\Server\vendor\raphael\raphael.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Data\d41d8cd9.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

@@ -64,7 +64,7 @@ namespace Model.DAO
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 // logging
                 return false;
@@ -102,7 +102,7 @@ namespace Model.DAO
                 db.Users.Remove(user);
                 db.SaveChanges();
                 return true;
-            }catch(Exception ex)
+            }catch(Exception )
             {
                 return false;
             }
