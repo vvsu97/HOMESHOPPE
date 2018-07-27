@@ -49,11 +49,12 @@ namespace HomeShoppe.Areas.Admin.Controllers
                 long id = dao.Insert(user);
                 if (id > 0)
                 {
+                    SetAlert("Thêm user thành công", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm mới user thành công");
+                    ModelState.AddModelError("", "Thêm user mới không  thành công");
                 }
             }
             return View("Index");
@@ -74,11 +75,12 @@ namespace HomeShoppe.Areas.Admin.Controllers
                 var  result= dao.Update(user);
                 if (result)
                 {
+                    SetAlert("Cập nhật user thành công", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật user thành công");
+                    ModelState.AddModelError("", "Cập nhật user không thành công");
                 }
             }
             return View("Index");

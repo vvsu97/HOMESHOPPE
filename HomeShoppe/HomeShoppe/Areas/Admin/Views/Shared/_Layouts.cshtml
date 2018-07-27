@@ -36,6 +36,13 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+                @if (TempData["AlertMessage"] != null)
+                {
+                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                        @TempData["AlertMessage"]
+                    </div>
+                }
+
                 @RenderBody();
             </div>
             <!-- /.container-fluid -->
@@ -56,7 +63,7 @@
     <script src="/Asset/Server/js/plugins/ckeditor/ckeditor.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="/Asset/Server/dist/js/sb-admin-2.js"></script>
-    @RenderSection("jsFooter", required:false)
+    @RenderSection("jsFooter", required: false)
 
 
 </body>
