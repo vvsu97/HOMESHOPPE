@@ -13,7 +13,7 @@ namespace HomeShoppe.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         #region method
-        public ActionResult Index(string searchString, int page = 1, int sizePage = 1)
+        public ActionResult Index(string searchString, int page = 1, int sizePage = 10)
         {
             var dao = new UserDAO();
             var model = dao.ListAllPaging(searchString, page, sizePage);
@@ -90,6 +90,16 @@ namespace HomeShoppe.Areas.Admin.Controllers
             new UserDAO().Delete(id);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult ChangeStatus(int id)
+        {
+            var result = new UserDAO().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
         #endregion
 

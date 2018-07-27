@@ -8,6 +8,10 @@
     Danh sách người dùng
 }
 
+
+@section jsFooter{
+    <script src="/Asset/Server/js/Controller/userController.js"></script>
+}
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -21,10 +25,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="col-md-4">
-                                <input type="text" value="@ViewBag.SearchString" name="searchString" />
+                                <input type="text" value="@ViewBag.SearchString" name="searchString" class="form-control" />
                             </div>
                             <div class="col-md-4">
-                                <button type="submit">Tìm kiếm</button>
+                                <button type="submit" class="btn btn-success">Tìm kiếm</button>
                             </div>
                         </div>
                     </div>
@@ -34,16 +38,21 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Tài khoản</th>
                                 <th>Địa chỉ</th>
                                 <th>Email</th>
+                                <th>Trạng thái</th>
+                                <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                                 <tr id="row_@item.ID">
+                                    <td>@item.UserName</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Email</td>
+                                    <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khóa")</a></td>
                                     <td>
                                         <a href="/Admin/User/Edit/@item.ID">Sửa</a>
                                         |
@@ -54,15 +63,11 @@
                                             HttpMethod = "Delete"
                                         })
                                     </td>
-
-                                    <td>@item.UserName</td>
-                                    <td>@item.Address</td>
-                                    <td>@item.Email</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString= @ViewBag.SearchString }))
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
                 </div>
                 <!-- /.table-responsive -->
             </div>
