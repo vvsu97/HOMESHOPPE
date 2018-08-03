@@ -1,0 +1,14 @@
+﻿@model List<Model.DTO.Menu>
+
+<div class="call">
+    <p><span>Need help?</span> call us <span class="number">096-72-89-031</span></span></p>
+</div>
+<div class="account_desc">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.Link">@item.Text</a></li>
+        }
+    </ul>
+</div>
+<div class="clear"></div>

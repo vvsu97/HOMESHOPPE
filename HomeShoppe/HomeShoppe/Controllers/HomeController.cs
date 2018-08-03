@@ -21,5 +21,19 @@ namespace HomeShoppe.Controllers
             var model = new MenuDAO().ListByGroupID(1);
             return PartialView(model);
         }
+
+        [ChildActionOnly]
+        public ActionResult TopMenu()
+        {
+            var model = new MenuDAO().ListByGroupID(2);
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var model = new FooterDAO().GetFooter();
+            return PartialView(model);
+        }
     }
 }

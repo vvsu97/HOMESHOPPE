@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Model.DAO
 {
-    public class MenuDAO
+     public class FooterDAO
     {
         HomeShoppeDB db = null;
 
-        public MenuDAO()
+        public FooterDAO()
         {
             db = new HomeShoppeDB();
         }
 
-        public List<Menu> ListByGroupID(int groupId)
+        public Footer GetFooter()
         {
-            return db.Menus.Where(x => x.TypeID == groupId && x.Status== true).OrderBy(x=>x.DisplayOrder).ToList();
+            return db.Footers.SingleOrDefault(x => x.Status == true);
         }
     }
 }
