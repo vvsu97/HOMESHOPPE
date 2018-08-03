@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,17 @@ namespace HomeShoppe.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [ChildActionOnly]
+        public ActionResult MainMenu()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var model = new MenuDAO().ListByGroupID(1);
+            return PartialView(model);
         }
     }
 }
