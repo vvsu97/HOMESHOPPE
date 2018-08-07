@@ -59,6 +59,9 @@
     <Compile Include="DAO\ContentDAO.cs" />
     <Compile Include="DAO\FooterDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DAO\ProductCategoryDAO.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\SlideDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DTO\About.cs" />
     <Compile Include="DTO\Category.cs" />
