@@ -29,12 +29,14 @@ namespace HomeShoppe.Controllers
             return View(category);
         }
 
-       public ActionResult Detail(long id)
+        public ActionResult Detail(long id)
         {
             var product = new ProductDAO().ViewDetail(id);
+            ViewBag.Category = new ProductCategoryDAO().ViewDetail(product.CategoryID.Value);
+            ViewBag.RelatedProducts = new ProductDAO().ListRelatedProducts(id);
             return View(product);
         }
 
-       
+
     }
 }
