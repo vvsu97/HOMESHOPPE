@@ -192,6 +192,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asset\Client\css\all.css" />
+    <Content Include="Asset\Client\css\all.min.css" />
     <Content Include="Asset\Client\css\bootstrap-grid.css" />
     <Content Include="Asset\Client\css\bootstrap-grid.min.css" />
     <Content Include="Asset\Client\css\bootstrap-reboot.css" />
@@ -199,7 +201,22 @@
     <Content Include="Asset\Client\css\bootstrap.css" />
     <Content Include="Asset\Client\css\bootstrap.min.css" />
     <Content Include="Asset\Client\css\bootstrap-theme.css" />
+    <Content Include="Asset\Client\css\brands.css" />
+    <Content Include="Asset\Client\css\brands.min.css" />
     <Content Include="Asset\Client\css\easy-responsive-tabs.css" />
+    <Content Include="Asset\Client\css\fontawesome.css" />
+    <Content Include="Asset\Client\css\fontawesome.min.css" />
+    <Content Include="Asset\Client\css\regular.css" />
+    <Content Include="Asset\Client\css\regular.min.css" />
+    <Content Include="Asset\Client\css\solid.css" />
+    <Content Include="Asset\Client\css\solid.min.css" />
+    <Content Include="Asset\Client\css\svg-with-js.css" />
+    <Content Include="Asset\Client\css\svg-with-js.min.css" />
+    <Content Include="Asset\Client\css\v4-shims.css" />
+    <Content Include="Asset\Client\css\v4-shims.min.css" />
+    <Content Include="Asset\Client\font\fa-brands-400.svg" />
+    <Content Include="Asset\Client\font\fa-regular-400.svg" />
+    <Content Include="Asset\Client\font\fa-solid-900.svg" />
     <Content Include="Asset\Client\css\global.css" />
     <Content Include="Asset\Client\css\slider.css" />
     <Content Include="Asset\Client\css\style.css" />
@@ -1646,6 +1663,18 @@
     <Content Include="Asset\Client\js\bootstrap.js.map" />
     <Content Include="Asset\Client\js\bootstrap.min.js.map" />
     <Content Include="Asset\Client\css\bootstrap-theme.css.map" />
+    <Content Include="Asset\Client\font\fa-brands-400.eot" />
+    <Content Include="Asset\Client\font\fa-brands-400.ttf" />
+    <Content Include="Asset\Client\font\fa-brands-400.woff" />
+    <Content Include="Asset\Client\font\fa-brands-400.woff2" />
+    <Content Include="Asset\Client\font\fa-regular-400.eot" />
+    <Content Include="Asset\Client\font\fa-regular-400.ttf" />
+    <Content Include="Asset\Client\font\fa-regular-400.woff" />
+    <Content Include="Asset\Client\font\fa-regular-400.woff2" />
+    <Content Include="Asset\Client\font\fa-solid-900.eot" />
+    <Content Include="Asset\Client\font\fa-solid-900.ttf" />
+    <Content Include="Asset\Client\font\fa-solid-900.woff" />
+    <Content Include="Asset\Client\font\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
