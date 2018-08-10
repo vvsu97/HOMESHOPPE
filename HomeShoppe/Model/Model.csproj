@@ -70,13 +70,14 @@
     <Compile Include="DTO\ContentTab.cs" />
     <Compile Include="DTO\Feedback.cs" />
     <Compile Include="DTO\Footer.cs" />
-    <Compile Include="DTO\HomeShoppeDB.cs" />
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\MenuType.cs" />
+    <Compile Include="DTO\Model1.cs" />
+    <Compile Include="DTO\Order.cs" />
+    <Compile Include="DTO\OrderDetail.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\ProductCategory.cs" />
     <Compile Include="DTO\Slide.cs" />
-    <Compile Include="DTO\sysdiagram.cs" />
     <Compile Include="DTO\SystemConfig.cs" />
     <Compile Include="DTO\Tab.cs" />
     <Compile Include="DTO\User.cs" />

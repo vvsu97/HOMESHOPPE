@@ -5,10 +5,10 @@ namespace Model.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class HomeShoppeDB : DbContext
+    public partial class Model1 : DbContext
     {
-        public HomeShoppeDB()
-            : base("name=HomeShoppeDB")
+        public Model1()
+            : base("name=Model1")
         {
         }
 
@@ -21,10 +21,11 @@ namespace Model.DTO
         public virtual DbSet<Footer> Footers { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuType> MenuTypes { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
         public virtual DbSet<Tab> Tabs { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -94,6 +95,14 @@ namespace Model.DTO
             modelBuilder.Entity<Footer>()
                 .Property(e => e.ID)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.CustomerID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Price)
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Code)

@@ -12,7 +12,7 @@
         public long ID { get; set; }
 
         [StringLength(50)]
-        [Display(Name ="Tài khoản")]
+        [Display(Name = "Tài khoản")]
         public string UserName { get; set; }
 
         [StringLength(32)]
@@ -20,15 +20,15 @@
         public string Password { get; set; }
 
         [StringLength(50)]
-        [Display(Name ="Địa chỉ")]
+        [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
         [StringLength(50)]
-        [Display(Name ="Email")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [StringLength(50)]
-        [Display(Name ="Số điện thoại")]
+        [Display(Name = "Số điện thoại")]
         public string Phone { get; set; }
 
         public DateTime? CreateDate { get; set; }
@@ -41,7 +41,7 @@
         [StringLength(50)]
         public string ModifiedBy { get; set; }
 
-        [Display(Name ="Trạng thái")]
+        [Display(Name = "Trạng thái")]
         public bool Status { get; set; }
     }
 }
