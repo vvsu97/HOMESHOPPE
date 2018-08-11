@@ -9,11 +9,11 @@ namespace Model.DAO
 {
     public class ContentDAO
     {
-        HomeShoppeDB db = null;
+        Model1 db = null;
 
         public ContentDAO()
         {
-            db = new HomeShoppeDB();
+            db = new Model1();
         }
 
         public Content GetById(long id)

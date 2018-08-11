@@ -11,11 +11,11 @@ namespace Model.DAO
 {
     public class UserDAO
     {
-        HomeShoppeDB db = null;
+        Model1 db = null;
         #region contructor
         public UserDAO()
         {
-            db = new HomeShoppeDB();
+            db = new Model1();
         }
 
         public IEnumerable<User> ListAllPaging(string searchString, int page, int pageSize)

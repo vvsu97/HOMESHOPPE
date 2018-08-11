@@ -9,11 +9,11 @@ namespace Model.DAO
 {
     public class SlideDAO
     {
-        HomeShoppeDB db = null;
+        Model1 db = null;
 
         public SlideDAO()
         {
-            db = new HomeShoppeDB();
+            db = new Model1();
         }
 
         public List<Slide> ListAll()

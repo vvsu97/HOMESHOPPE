@@ -9,11 +9,11 @@ namespace Model.DAO
 {
     public class MenuDAO
     {
-        HomeShoppeDB db = null;
+        Model1 db = null;
 
         public MenuDAO()
         {
-            db = new HomeShoppeDB();
+            db = new Model1();
         }
 
         public List<Menu> ListByGroupID(int groupId)

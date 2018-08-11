@@ -1,4 +1,6 @@
-﻿using Model.DAO;
+﻿using HomeShoppe.Common;
+using HomeShoppe.Models;
+using Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,17 +36,24 @@ namespace HomeShoppe.Controllers
         }
 
         [ChildActionOnly]
+        public PartialViewResult HeaderCart()
+        {
+            var cart = Session[CommonConstants.CART_SESSION];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
+        }
+
+        [ChildActionOnly]
         public ActionResult Footer()
         {
             var model = new FooterDAO().GetFooter();
             return PartialView(model);
         }
 
-        //[ChildActionOnly]
-        //public ActionResult ProductCategory()
-        //{
-        //    var model = new ProductCategoryDAO().ListAll();
-        //    return PartialView(model);
-        //}
+       
     }
 }

@@ -184,11 +184,13 @@
     <Compile Include="Common\Encrytor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +276,7 @@
     <Content Include="Asset\Client\js\bootstrap.bundle.min.js" />
     <Content Include="Asset\Client\js\bootstrap.js" />
     <Content Include="Asset\Client\js\bootstrap.min.js" />
+    <Content Include="Asset\Client\js\controller\cartController.js" />
     <Content Include="Asset\Client\js\easing.js" />
     <Content Include="Asset\Client\js\easyResponsiveTabs.js" />
     <Content Include="Asset\Client\js\jquery-1.7.2.min.js" />
@@ -1727,10 +1730,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

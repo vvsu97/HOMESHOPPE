@@ -9,11 +9,11 @@ namespace Model.DAO
 {
      public class FooterDAO
     {
-        HomeShoppeDB db = null;
+        Model1 db = null;
 
         public FooterDAO()
         {
-            db = new HomeShoppeDB();
+            db = new Model1();
         }
 
         public Footer GetFooter()

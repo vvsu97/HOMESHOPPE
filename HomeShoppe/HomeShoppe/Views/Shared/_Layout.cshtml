@@ -18,7 +18,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href="/Asset/Client/css/slider.css" rel="stylesheet" type="text/css" media="all" />
     <script src="/Asset/Client/js/jquery-3.3.1.min.js"></script>
     <script src="/Asset/Client/js/bootstrap.min.js"></script>
-    @*<script type="text/javascript" src="/Asset/Client/js/jquery-1.7.2.min.js"></script>*@
     <script type="text/javascript" src="/Asset/Client/js/move-top.js"></script>
     <script type="text/javascript" src="/Asset/Client/js/easing.js"></script>
     <script type="text/javascript" src="/Asset/Client/js/startstop-slider.js"></script>
@@ -31,18 +30,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <div class="header_top">
                 <div class="logo">
-                    <a href="index.html"><img src="/Asset/Client/images/logo.png" alt="" /></a>
+                    <a href="/" ref="nofollow"><img src="/Asset/Client/images/logo.png" alt="" /></a>
                 </div>
-                <div class="cart">
-                    <p>
-                        Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2">
-                            0 item(s) - $0.00
-                            <ul class="dropdown">
-                                <li>you have no items in your Shopping cart</li>
-                            </ul>
-                        </div>
-                    </p>
-                </div>
+                @{ Html.RenderAction("HeaderCart", "Home");}
                 <script type="text/javascript">
                     function DropDown(el) {
                         this.dd = el;
@@ -98,6 +88,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
     </script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+    @RenderSection("jsFooter", required:false)
 </body>
 </html>
 

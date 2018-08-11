@@ -1,0 +1,91 @@
+﻿@model List<HomeShoppe.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script src="/Asset/Client/js/controller/cartController.js"></script>
+}
+
+
+<!--Add plugin CSS fix button in web-->
+<head>
+    <style>
+        .btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .btn1 {
+            background-color: #008CBA;
+        }
+        /* Blue */
+        .btn2 {
+            background-color: #f44336;
+        }
+        /* Red */
+        .btn3 {
+            background-color: #e7e7e7;
+            color: black;
+        }
+
+        .btn4 {
+            background-color: #4CAF50;
+        }
+        /* Gray */
+    </style>
+</head>
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Product.ID</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@item.Product.Image" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                            <td><a href="#" data-id="@item.Product.ID" class="btn-delete">Xoá</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <button id="btnContinue" class=" button btn4">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="button btn1">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="button btn2">Xoá giỏ hàng</button>
+            <button id="btnPayment" class="button btn3">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
+    </div>
+</div>

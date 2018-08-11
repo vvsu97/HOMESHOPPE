@@ -9,11 +9,11 @@ namespace Model.DAO
 {
     public class ProductCategoryDAO
     {
-        HomeShoppeDB db = null;
+        Model1 db = null;
 
         public ProductCategoryDAO()
         {
-            db = new HomeShoppeDB();
+            db = new Model1();
         }
 
         public List<ProductCategory> ListAll()
