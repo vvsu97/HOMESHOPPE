@@ -3,14 +3,17 @@
         cart.regEvents();
     },
     regEvents: function () {
+        // Continue to choose product in Menu Category
         $('#btnContinue').off('click').on('click', function () {
             window.location.href = "/";
         });
 
+        // Method payment to CartItem
         $('#btnPayment').off('click').on('click', function () {
             window.location.href = "/thanh-toan";
         });
 
+        // Method update quantity product in Cart 
         $('#btnUpdate').off('click').on('click', function () {
             var listProduct = $('.txtQuantity');
             var cartList = [];
@@ -23,6 +26,7 @@
                 });
             });
 
+            // call AJAX
             $.ajax({
                 url: '/Cart/Update',
                 data: { cartModel: JSON.stringify(cartList) },
@@ -36,6 +40,7 @@
             })
         });
 
+        // Delete All Product in CART
         $('#btnDeleteAll').off('click').on('click', function () {
 
 
@@ -51,6 +56,7 @@
             })
         });
 
+        // Delete  a litter product in  Product Group
         $('.btn-delete').off('click').on('click', function (e) {
             e.preventDefault();
             $.ajax({
