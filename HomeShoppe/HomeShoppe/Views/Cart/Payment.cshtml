@@ -5,6 +5,28 @@
                 ViewBag.Title = "Thanh toán";
                 Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<!-- CSS Button-->>
+<head>
+    <style>
+        .btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .btn1 {
+            background-color: #008CBA;
+        }
+    </style>
+</head>
 <div class="content">
     <div class="section group">
         @if (Model.Count > 0)
@@ -60,7 +82,7 @@
                     <label>Email</label>
                     <input name="email" class="form-control" />
                 </div>
-                <button type="submit" class="btn">Gửi đơn hàng</button>
+                <button type="submit" class="button btn1">Gửi đơn hàng</button>
             }
         </div>
 
