@@ -4,6 +4,7 @@ using Model.DAO;
 using Model.DTO;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,22 +14,22 @@ namespace HomeShoppe.Controllers
 {
     public class CartController : Controller
     {
+        private const string CartSession = "CartSession";
         // GET: Cart
         public ActionResult Index()
         {
-            var cart = Session[CommonConstants.CART_SESSION];
+            var cart = Session[CartSession];
             var list = new List<CartItem>();
-            if(cart != null)
+            if (cart != null)
             {
                 list = (List<CartItem>)cart;
             }
             return View(list);
         }
 
-        #region Contructer_Product_In_Cart
         public JsonResult DeleteAll()
         {
-            Session[CommonConstants.CART_SESSION] = null;
+            Session[CartSession] = null;
             return Json(new
             {
                 status = true
@@ -37,19 +38,18 @@ namespace HomeShoppe.Controllers
 
         public JsonResult Delete(long id)
         {
-            var sessionCart = (List<CartItem>)Session[CommonConstants.CART_SESSION];
+            var sessionCart = (List<CartItem>)Session[CartSession];
             sessionCart.RemoveAll(x => x.Product.ID == id);
-            Session[CommonConstants.CART_SESSION] = sessionCart;
+            Session[CartSession] = sessionCart;
             return Json(new
             {
                 status = true
             });
         }
-
         public JsonResult Update(string cartModel)
         {
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
-            var sessionCart = (List<CartItem>)Session[CommonConstants.CART_SESSION];
+            var sessionCart = (List<CartItem>)Session[CartSession];
 
             foreach (var item in sessionCart)
             {
@@ -59,19 +59,58 @@ namespace HomeShoppe.Controllers
                     item.Quantity = jsonItem.Quantity;
                 }
             }
-            Session[CommonConstants.CART_SESSION] = sessionCart;
+            Session[CartSession] = sessionCart;
             return Json(new
             {
                 status = true
             });
         }
-        #endregion
+        public ActionResult AddItem(long productId, int quantity)
+        {
+            var product = new ProductDAO().ViewDetail(productId);
+            var cart = Session[CartSession];
+            if (cart != null)
+            {
+                var list = (List<CartItem>)cart;
+                if (list.Exists(x => x.Product.ID == productId))
+                {
 
-        #region Payment_In_Cart
+                    foreach (var item in list)
+                    {
+                        if (item.Product.ID == productId)
+                        {
+                            item.Quantity += quantity;
+                        }
+                    }
+                }
+                else
+                {
+                    //tạo mới đối tượng cart item
+                    var item = new CartItem();
+                    item.Product = product;
+                    item.Quantity = quantity;
+                    list.Add(item);
+                }
+                //Gán vào session
+                Session[CartSession] = list;
+            }
+            else
+            {
+                //tạo mới đối tượng cart item
+                var item = new CartItem();
+                item.Product = product;
+                item.Quantity = quantity;
+                var list = new List<CartItem>();
+                list.Add(item);
+                //Gán vào session
+                Session[CartSession] = list;
+            }
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult Payment()
         {
-            var cart = Session[CommonConstants.CART_SESSION];
+            var cart = Session[CartSession];
             var list = new List<CartItem>();
             if (cart != null)
             {
@@ -84,7 +123,7 @@ namespace HomeShoppe.Controllers
         public ActionResult Payment(string shipName, string mobile, string address, string email)
         {
             var order = new Order();
-            order.CreatedDate = DateTime.Now;
+            order.CreateDate = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;
             order.ShipName = shipName;
@@ -93,8 +132,8 @@ namespace HomeShoppe.Controllers
             try
             {
                 var id = new OrderDAO().Insert(order);
-                var cart = (List<CartItem>)Session[CommonConstants.CART_SESSION];
-                var detailDao = new Model.DAO.OrderDetailDao();
+                var cart = (List<CartItem>)Session[CartSession];
+                var detailDao = new Model.DAO.OrderDetailDAO();
                 decimal total = 0;
                 foreach (var item in cart)
                 {
@@ -107,68 +146,28 @@ namespace HomeShoppe.Controllers
 
                     total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
-                string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
+                //string content = System.IO.File.ReadAllText(Server.MapPath("/Assets/Client/template/neworder.html"));
 
-                content = content.Replace("{{CustomerName}}", shipName);
-                content = content.Replace("{{Phone}}", mobile);
-                content = content.Replace("{{Email}}", email);
-                content = content.Replace("{{Address}}", address);
-                content = content.Replace("{{Total}}", total.ToString("N0"));
-                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                //content = content.Replace("{{CustomerName}}", shipName);
+                //content = content.Replace("{{Phone}}", mobile);
+                //content = content.Replace("{{Email}}", email);
+                //content = content.Replace("{{Address}}", address);
+                //content = content.Replace("{{Total}}", total.ToString("N0"));
+                //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
-                new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
-                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
+                //new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
+                //new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //ghi log
                 return Redirect("/loi-thanh-toan");
             }
             return Redirect("/hoan-thanh");
-            #endregion
-            public ActionResult AddItem(long productID, int quantity)
-        {
-            var cart = Session[CommonConstants.CART_SESSION];
-            var product = new ProductDAO().ViewDetail(productID);
-
-            if (cart != null)
-            {
-                var list = (List<CartItem>)cart;
-                if (list.Exists(x => x.Product.ID == productID))
-                {
-                    foreach (var item in list)
-                    {
-                        if (item.Product.ID == productID)
-                        {
-                            item.Quantity += quantity;
-                        }
-                    }
-                }
-                else
-                {
-                    // tao moi doi tuong cart item 
-                    var item = new CartItem();
-
-                    item.Product = product;
-                    item.Quantity = quantity;
-                    list.Add(item);
-                }
-                Session[CommonConstants.CART_SESSION] = list;
-            }
-            else
-            {
-                // tao moi doi tuong cart item 
-                var item = new CartItem();
-                item.Product = product;
-                item.Quantity = quantity;
-                var list = new List<CartItem>();
-                list.Add(item);
-
-                // gan vao Session
-                Session[CommonConstants.CART_SESSION] = list;
-            }
-            return RedirectToAction("Index");
         }
-
+        public ActionResult Success()
+        {
+            return View();
+        }
     }
 }
