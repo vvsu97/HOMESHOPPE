@@ -1,9 +1,10 @@
-﻿@model Model.DTO.Product
+﻿@model Model.EF.Product
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var category = (Model.DTO.ProductCategory)ViewBag.Category;
-    var relatedProducts = (List<Model.DTO.Product>)ViewBag.RelatedProducts;
+    var category = (Model.EF
+        .ProductCategory)ViewBag.Category;
+    var relatedProducts = (List<Model.EF.Product>)ViewBag.RelatedProducts;
 }
 
 <div class="content">

@@ -1,6 +1,6 @@
-﻿@model List<Model.DTO.Product>
+﻿@model List<Model.EF.Product>
 @{
-    var category = (Model.DTO.ProductCategory)ViewBag.Category;
+    var category = (Model.EF.ProductCategory)ViewBag.Category;
     ViewBag.Title = category.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 

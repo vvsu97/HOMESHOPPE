@@ -1,14 +1,14 @@
-namespace Model.DTO
+namespace Model.EF
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class Model1 : DbContext
+    public partial class HomeShoppe : DbContext
     {
-        public Model1()
-            : base("name=Model1")
+        public HomeShoppe()
+            : base("name=HomeShoppe")
         {
         }
 

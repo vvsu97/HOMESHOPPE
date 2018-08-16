@@ -1,4 +1,4 @@
-namespace Model.DTO
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -6,12 +6,15 @@ namespace Model.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("MenuType")]
-    public partial class MenuType
+    [Table("Footer")]
+    public partial class Footer
     {
-        public int ID { get; set; }
-
         [StringLength(50)]
-        public string Name { get; set; }
+        public string ID { get; set; }
+
+        [Column(TypeName = "ntext")]
+        public string Content { get; set; }
+
+        public bool? Status { get; set; }
     }
 }

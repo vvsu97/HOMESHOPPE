@@ -1,4 +1,4 @@
-namespace Model.DTO
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -6,16 +6,13 @@ namespace Model.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Product")]
-    public partial class Product
+    [Table("About")]
+    public partial class About
     {
         public long ID { get; set; }
 
         [StringLength(250)]
         public string Name { get; set; }
-
-        [StringLength(10)]
-        public string Code { get; set; }
 
         [StringLength(250)]
         public string MetaTitle { get; set; }
@@ -26,23 +23,8 @@ namespace Model.DTO
         [StringLength(250)]
         public string Image { get; set; }
 
-        [Column(TypeName = "xml")]
-        public string MoreImage { get; set; }
-
-        public decimal? Price { get; set; }
-
-        public bool? IncludedVAT { get; set; }
-
-        public decimal? PromotionPrice { get; set; }
-
-        public int Quantity { get; set; }
-
-        public long? CategoryID { get; set; }
-
         [Column(TypeName = "ntext")]
         public string Detail { get; set; }
-
-        public int? Warranty { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
@@ -61,10 +43,5 @@ namespace Model.DTO
         public string MetaDiscriptions { get; set; }
 
         public bool? Status { get; set; }
-
-        public DateTime? TopHot { get; set; }
-
-        [StringLength(10)]
-        public string ViewCount { get; set; }
     }
 }

@@ -1,21 +1,21 @@
-﻿using Model.DTO;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PagedList;
 using System.Threading.Tasks;
-
+using Model.EF;
 
 namespace Model.DAO
 {
     public class UserDAO
     {
-        Model1 db = null;
+        HomeShoppe db = null;
         #region contructor
         public UserDAO()
         {
-            db = new Model1();
+            db = new HomeShoppe();
         }
 
         public IEnumerable<User> ListAllPaging(string searchString, int page, int pageSize)

@@ -1,6 +1,6 @@
 ﻿using HomeShoppe.Common;
 using Model.DAO;
-using Model.DTO;
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;

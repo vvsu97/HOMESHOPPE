@@ -1,4 +1,4 @@
-namespace Model.DTO
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,8 @@ namespace Model.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Category")]
-    public partial class Category
+    [Table("ProductCategory")]
+    public partial class ProductCategory
     {
         public long ID { get; set; }
 
@@ -42,7 +42,6 @@ namespace Model.DTO
 
         public bool? Status { get; set; }
 
-        [StringLength(10)]
-        public string ShowOnHome { get; set; }
+        public bool? ShowOnHome { get; set; }
     }
 }

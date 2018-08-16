@@ -1,4 +1,4 @@
-namespace Model.DTO
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,8 @@ namespace Model.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("About")]
-    public partial class About
+    [Table("Category")]
+    public partial class Category
     {
         public long ID { get; set; }
 
@@ -17,31 +17,32 @@ namespace Model.DTO
         [StringLength(250)]
         public string MetaTitle { get; set; }
 
-        [StringLength(500)]
-        public string Description { get; set; }
+        public long? ParentID { get; set; }
+
+        public int? DisplayOrder { get; set; }
 
         [StringLength(250)]
-        public string Image { get; set; }
-
-        [Column(TypeName = "ntext")]
-        public string Detail { get; set; }
+        public string SeoTitle { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
         [StringLength(50)]
         public string CreateBy { get; set; }
 
-        public DateTime? ModifiedDate { get; set; }
+        public DateTime? ModifieDate { get; set; }
 
         [StringLength(50)]
-        public string ModifiedBy { get; set; }
+        public string ModifieBy { get; set; }
 
         [StringLength(250)]
         public string MetaKeywords { get; set; }
 
         [StringLength(250)]
-        public string MetaDiscriptions { get; set; }
+        public string MetaDescriptions { get; set; }
 
         public bool? Status { get; set; }
+
+        [StringLength(10)]
+        public string ShowOnHome { get; set; }
     }
 }

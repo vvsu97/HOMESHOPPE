@@ -1,4 +1,6 @@
-﻿using Model.DTO;
+﻿
+
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,11 @@ namespace Model.DAO
 {
     public class ProductCategoryDAO
     {
-        Model1 db = null;
+        HomeShoppe db = null;
 
         public ProductCategoryDAO()
         {
-            db = new Model1();
+            db = new HomeShoppe();
         }
 
         public List<ProductCategory> ListAll()

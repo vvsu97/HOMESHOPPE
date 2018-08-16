@@ -1,4 +1,4 @@
-namespace Model.DTO
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -6,21 +6,25 @@ namespace Model.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Slide")]
-    public partial class Slide
+    [Table("User")]
+    public partial class User
     {
-        public int ID { get; set; }
-
-        [StringLength(250)]
-        public string Image { get; set; }
-
-        public int? DisplayOrder { get; set; }
-
-        [StringLength(250)]
-        public string Link { get; set; }
+        public long ID { get; set; }
 
         [StringLength(50)]
-        public string Description { get; set; }
+        public string UserName { get; set; }
+
+        [StringLength(32)]
+        public string Password { get; set; }
+
+        [StringLength(50)]
+        public string Address { get; set; }
+
+        [StringLength(50)]
+        public string Email { get; set; }
+
+        [StringLength(50)]
+        public string Phone { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
@@ -32,6 +36,6 @@ namespace Model.DTO
         [StringLength(50)]
         public string ModifiedBy { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
     }
 }

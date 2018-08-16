@@ -1,4 +1,6 @@
-﻿using Model.DTO;
+﻿
+
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,11 @@ namespace Model.DAO
 {
     public class MenuDAO
     {
-        Model1 db = null;
+        HomeShoppe db = null;
 
         public MenuDAO()
         {
-            db = new Model1();
+            db = new HomeShoppe();
         }
 
         public List<Menu> ListByGroupID(int groupId)

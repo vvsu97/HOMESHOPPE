@@ -1,9 +1,11 @@
 ﻿using Model.DAO;
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
 
 namespace HomeShoppe.Controllers
 {
@@ -28,7 +30,7 @@ namespace HomeShoppe.Controllers
             var category = new CategoryDAO().ViewDetail(cateId);
             ViewBag.Category = category;
             int totalRecord = 0;
-            var model = new ProductDAO().ListByCategoryID(cateId, ref totalRecord, page, pageSize);
+            var model = new ProductDAO().ListByCategoryId(cateId, ref totalRecord, page, pageSize);
 
             ViewBag.Total = totalRecord;
             ViewBag.Page = page;
