@@ -1,4 +1,5 @@
-﻿using HomeShoppe.Common;
+﻿using Common;
+using HomeShoppe.Common;
 using HomeShoppe.Models;
 using Model.DAO;
 using Model.EF;
@@ -26,7 +27,8 @@ namespace HomeShoppe.Controllers
             }
             return View(list);
         }
-
+        
+        #region Click_Event_Button
         public JsonResult DeleteAll()
         {
             Session[CartSession] = null;
@@ -107,6 +109,9 @@ namespace HomeShoppe.Controllers
             }
             return RedirectToAction("Index");
         }
+        #endregion
+
+        #region  Payment_HTTP
         [HttpGet]
         public ActionResult Payment()
         {
@@ -146,28 +151,32 @@ namespace HomeShoppe.Controllers
 
                     total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
-                //string content = System.IO.File.ReadAllText(Server.MapPath("/Assets/Client/template/neworder.html"));
+                string content = System.IO.File.ReadAllText(Server.MapPath("/Asset/Client/template/neworder.html"));
 
-                //content = content.Replace("{{CustomerName}}", shipName);
-                //content = content.Replace("{{Phone}}", mobile);
-                //content = content.Replace("{{Email}}", email);
-                //content = content.Replace("{{Address}}", address);
-                //content = content.Replace("{{Total}}", total.ToString("N0"));
-                //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                content = content.Replace("{{CustomerName}}", shipName);
+                content = content.Replace("{{Phone}}", mobile);
+                content = content.Replace("{{Email}}", email);
+                content = content.Replace("{{Address}}", address);
+                content = content.Replace("{{Total}}", total.ToString("N0"));
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
-                //new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
-                //new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //ghi log
                 return Redirect("/loi-thanh-toan");
             }
             return Redirect("/hoan-thanh");
         }
+        #endregion
+
+        #region Notification_Payment_With_User
         public ActionResult Success()
         {
             return View();
         }
+        #endregion
     }
 }

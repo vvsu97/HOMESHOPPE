@@ -287,6 +287,7 @@
     <Content Include="Asset\Client\js\script.js" />
     <Content Include="Asset\Client\js\slides.min.jquery.js" />
     <Content Include="Asset\Client\js\startstop-slider.js" />
+    <Content Include="Asset\Client\template\neworder.html" />
     <Content Include="Asset\Server\data\flot-data.js" />
     <Content Include="Asset\Server\data\morris-data.js" />
     <Content Include="Asset\Server\dist\css\sb-admin-2.css" />
@@ -1748,6 +1749,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{13470cc8-20ba-4996-b83e-1107aade2a44}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{322b1fee-5180-4a2e-948d-96e955edf501}</Project>
       <Name>Model</Name>
