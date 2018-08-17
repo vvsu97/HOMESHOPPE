@@ -56,7 +56,5 @@ namespace HomeShoppe.Controllers
             ViewBag.RelatedProducts = new ProductDAO().ListRelatedProducts(id);
             return View(product);
         }
-
-
     }
 }

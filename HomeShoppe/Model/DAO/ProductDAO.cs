@@ -51,9 +51,9 @@ namespace Model.DAO
                          {
                              CateMetaTitle = b.MetaTitle,
                              CateName = b.Name,
-                             CreatedDate = a.CreateDate,
+                             CreateDate = a.CreateDate,
                              ID = a.ID,
-                             Images = a.Image,
+                             Image = a.Image,
                              Name = a.Name,
                              MetaTitle = a.MetaTitle,
                              Price = a.Price
@@ -61,9 +61,9 @@ namespace Model.DAO
                          {
                              CateMetaTitle = x.MetaTitle,
                              CateName = x.Name,
-                             CreatedDate = x.CreatedDate,
+                             CreatedDate = x.CreateDate,
                              ID = x.ID,
-                             Image = x.Images,
+                             Image = x.Image,
                              Name = x.Name,
                              MetaTitle = x.MetaTitle,
                              Price = x.Price
@@ -82,7 +82,7 @@ namespace Model.DAO
                          {
                              CateMetaTitle = b.MetaTitle,
                              CateName = b.Name,
-                             CreatedDate = a.CreateDate,
+                             CreateDate = a.CreateDate,
                              ID = a.ID,
                              Images = a.Image,
                              Name = a.Name,
@@ -92,7 +92,7 @@ namespace Model.DAO
                          {
                              CateMetaTitle = x.MetaTitle,
                              CateName = x.Name,
-                             CreatedDate = x.CreatedDate,
+                             CreatedDate = x.CreateDate,
                              ID = x.ID,
                              Image = x.Images,
                              Name = x.Name,
