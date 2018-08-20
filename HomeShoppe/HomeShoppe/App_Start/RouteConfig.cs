@@ -53,7 +53,7 @@ namespace HomeShoppe
 
             routes.MapRoute(
           name: "Contact",
-          url: "lien-he",
+          url: "lienhe",
           defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
           namespaces: new[] { "HomeShoppe.Controllers" }
       );

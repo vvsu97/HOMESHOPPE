@@ -185,6 +185,7 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,6 +278,7 @@
     <Content Include="Asset\Client\js\bootstrap.js" />
     <Content Include="Asset\Client\js\bootstrap.min.js" />
     <Content Include="Asset\Client\js\controller\cartController.js" />
+    <Content Include="Asset\Client\js\controller\contactController.js" />
     <Content Include="Asset\Client\js\easing.js" />
     <Content Include="Asset\Client\js\easyResponsiveTabs.js" />
     <Content Include="Asset\Client\js\jquery-1.7.2.min.js" />
@@ -1735,6 +1737,7 @@
     <Content Include="Views\Shared\HeaderCart.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
