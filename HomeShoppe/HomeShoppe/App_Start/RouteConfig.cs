@@ -12,6 +12,9 @@ namespace HomeShoppe
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            // BotDetect requests must not be routed
+            routes.IgnoreRoute("{*botdetect}",
+              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
             routes.IgnoreRoute("{*botdetect}",
       new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
@@ -82,9 +85,11 @@ namespace HomeShoppe
        defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
        namespaces: new[] { "HomeShoppe.Controllers" }
    );
+
+            // add mapRouter
             routes.MapRoute(
         name: "Register",
-        url: "dang-ky",
+        url: "dangki",
         defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
         namespaces: new[] { "HomeShoppe.Controllers" }
     );
