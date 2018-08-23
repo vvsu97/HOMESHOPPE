@@ -75,7 +75,7 @@ namespace HomeShoppe
       );
             routes.MapRoute(
         name: "Login",
-        url: "dang-nhap",
+        url: "dangnhap",
         defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional },
         namespaces: new[] { "HomeShoppe.Controllers" }
     );
