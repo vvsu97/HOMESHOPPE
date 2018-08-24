@@ -65,8 +65,7 @@ namespace Model.EF
                 .IsFixedLength();
 
             modelBuilder.Entity<Category>()
-                .Property(e => e.ShowOnHome)
-                .IsFixedLength();
+                .Property(e => e.ShowOnHome);
 
             modelBuilder.Entity<Content>()
                 .Property(e => e.MetaTitle)

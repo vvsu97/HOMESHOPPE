@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HomeShoppe.Common;
+using Model.DAO;
+using Model.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,7 +9,7 @@ using System.Web.Mvc;
 
 namespace HomeShoppe.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         // GET: Admin/Category
         public ActionResult Index()
@@ -14,11 +17,29 @@ namespace HomeShoppe.Areas.Admin.Controllers
             return View();
         }
 
-        #region method
         public ActionResult Create()
         {
             return View();
         }
-        #endregion
+
+        [HttpPost]
+        public ActionResult Create(Category model)
+        {
+            if (ModelState.IsValid)
+            {
+                var currentCulture = Session[CommonConstants.CurrentCulture];
+                model.Language = currentCulture.ToString();
+                var id = new CategoryDAO().Insert(model);
+                if (id > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", StaticResource.Resources.InsertCategoryFailed);
+                }
+            }
+            return View(model);
+        }
     }
 }

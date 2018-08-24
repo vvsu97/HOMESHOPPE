@@ -10,11 +10,24 @@
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">
+        <li>
+            @using (Html.BeginForm("ChangeCulture", "Base"))
+            {
+                @Html.Hidden("returnUrl", Request.RawUrl)
+                @Html.DropDownList("ddlCulture", new SelectList(new[] {
+                    new {value="vi",text=StaticResource.Resources.Vietnamese},
+                    new {value="en",text=StaticResource.Resources.English},
+
+                    }, "value", "text", Session[HomeShoppe.Common.CommonConstants.CurrentCulture]), new { onchange = "this.form.submit();" })
+            }
+        </li>
+
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-messages">
+
                 <li>
                     <a href="#">
                         <div>
@@ -23,7 +36,7 @@
                                 <em>Yesterday</em>
                             </span>
                         </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend/assets/admin.</div>
                     </a>
                 </li>
                 <li class="divider"></li>
@@ -35,7 +48,7 @@
                                 <em>Yesterday</em>
                             </span>
                         </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend/assets/admin.</div>
                     </a>
                 </li>
                 <li class="divider"></li>
@@ -47,7 +60,7 @@
                                 <em>Yesterday</em>
                             </span>
                         </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend/assets/admin.</div>
                     </a>
                 </li>
                 <li class="divider"></li>
@@ -63,7 +76,7 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-tasks">
                 <li>
@@ -142,7 +155,7 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
                 <li>
@@ -202,7 +215,7 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
@@ -226,7 +239,7 @@
             <ul class="nav" id="side-menu">
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Search.">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <i class="fa fa-search"></i>
@@ -236,17 +249,16 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="/Admin/Home/Index"><i class="fa fa-dashboard fa-fw"></i>Trang chủ</a>
+                    <a href="/Admin/Home/Index"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
                 </li>
-
                 <li>
-                    <a href="#"><i class="fa fa-user fa-fw"></i>Hệ thống<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-user fa-fw"></i> Hệ thống<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="/Admin/UserGroup/Index">Nhóm người dùng</a>
                         </li>
                         <li>
-                            <a href="/Admin/User/Index">Danh sách User</a>
+                            <a href="/Admin/User/Index">User</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -263,12 +275,11 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
-
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Sản phẩm<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-bell fa-fw"></i> Sản phẩm<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/Admin/ProductCategory/Index">Danh mục sản phẩm </a>
+                            <a href="/Admin/ProductCategory/Index">Danh mục</a>
                         </li>
                         <li>
                             <a href="/Admin/Product/Index">Sản phẩm</a>
@@ -276,24 +287,20 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
-
                 <li>
-                    <a href="#"><i class="fa fa-gear fa-fw"></i> Quản lí chung<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý chung<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="/Admin/About/Index">Giới thiệu</a>
                         </li>
                         <li>
-                            <a href="/Admin/Footer/Index">Footer</a>
+                            <a href="/Admin/Footer/Index">Foooter</a>
                         </li>
                         <li>
                             <a href="/Admin/Footer/Index">Menu</a>
                         </li>
                         <li>
                             <a href="/Admin/Footer/Index">Slide</a>
-                        </li>
-                        <li>
-                            <a href="/Admin/Footer/Index">Contact</a>
                         </li>
                         <li>
                             <a href="/Admin/Footer/Index">Phản hồi</a>

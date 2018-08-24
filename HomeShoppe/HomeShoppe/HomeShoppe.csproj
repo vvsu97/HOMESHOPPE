@@ -2098,6 +2098,10 @@
       <Project>{322b1fee-5180-4a2e-948d-96e955edf501}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{001db1ed-1fe0-4847-98c8-ee03278fe03f}</Project>
+      <Name>StaticResource</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />

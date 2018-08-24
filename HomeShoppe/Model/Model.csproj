@@ -94,6 +94,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{001db1ed-1fe0-4847-98c8-ee03278fe03f}</Project>
+      <Name>StaticResource</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
