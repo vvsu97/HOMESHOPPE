@@ -524,7 +524,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\DistrictModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProvinceModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -552,6 +554,7 @@
     <Content Include="Asset\Client\css\svg-with-js.min.css" />
     <Content Include="Asset\Client\css\v4-shims.css" />
     <Content Include="Asset\Client\css\v4-shims.min.css" />
+    <Content Include="Asset\Client\data\Provinces_Data.xml" />
     <Content Include="Asset\Client\font\fa-brands-400.svg" />
     <Content Include="Asset\Client\font\fa-regular-400.svg" />
     <Content Include="Asset\Client\font\fa-solid-900.svg" />
