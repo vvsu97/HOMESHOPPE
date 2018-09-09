@@ -23,6 +23,9 @@ namespace HomeShoppe.Controllers
         }
 
         [ChildActionOnly]
+        // Use Cache Server with Duration 
+        // Use can use Duration to Transection 
+        [OutputCache(Duration =3600*24)]
         public ActionResult MainMenu()
         {
             var model = new MenuDAO().ListByGroupID(1);
@@ -30,6 +33,7 @@ namespace HomeShoppe.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600 * 24)]
         public ActionResult TopMenu()
         {
             var model = new MenuDAO().ListByGroupID(2);
@@ -37,6 +41,7 @@ namespace HomeShoppe.Controllers
         }
 
         [ChildActionOnly]
+        //[OutputCache(Duration = 3600 * 24)]
         public PartialViewResult HeaderCart()
         {
             var cart = Session[CommonConstants.CART_SESSION];
@@ -49,12 +54,11 @@ namespace HomeShoppe.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration =3600*24)]
         public ActionResult Footer()
         {
             var model = new FooterDAO().GetFooter();
             return PartialView(model);
         }
-
-       
     }
 }

@@ -49,6 +49,7 @@ namespace HomeShoppe.Controllers
             return View(model);
         }
 
+        [OutputCache(CacheProfile = "Cache1DayForProduct")]
         public ActionResult Detail(long id)
         {
             var product = new ProductDAO().ViewDetail(id);
