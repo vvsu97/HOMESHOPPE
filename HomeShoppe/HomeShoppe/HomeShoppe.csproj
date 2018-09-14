@@ -2023,6 +2023,7 @@
     <Content Include="Asset\Client\font\fa-solid-900.ttf" />
     <Content Include="Asset\Client\font\fa-solid-900.woff" />
     <Content Include="Asset\Client\font\fa-solid-900.woff2" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
